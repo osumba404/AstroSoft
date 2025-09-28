@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroSoft | Beyond Code. Beyond Limits.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --astro-blue: #1B3CFC;
+            --cosmic-black: #0A0A0A;
+            --stellar-white: #FFFFFF;
+            --nova-purple: #6C5CE7;
+            --orbit-gray: #E5E7EB;
+            --light-gray: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--stellar-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--stellar-white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+            border-radius: 8px;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .logo-icon::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--stellar-white);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--cosmic-black);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cosmic-black);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--astro-blue);
+        }
+
+        .cta-button {
+            background-color: var(--astro-blue);
+            color: var(--stellar-white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--nova-purple);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, rgba(27, 60, 252, 0.05) 0%, rgba(108, 92, 231, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--cosmic-black);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--astro-blue);
+            border: 2px solid var(--astro-blue);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(27, 60, 252, 0.1);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+            border-radius: 20px 0 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--stellar-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--cosmic-black);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--stellar-white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--stellar-white);
+            font-size: 28px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--cosmic-black);
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--stellar-white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+            position: relative;
+        }
+
+        .project-image::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--cosmic-black);
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            background-color: var(--orbit-gray);
+            color: #555;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--stellar-white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background-color: var(--stellar-white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--astro-blue);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--astro-blue);
+            color: var(--stellar-white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            margin-bottom: 30px;
+        }
+
+        .pricing-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--cosmic-black);
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--astro-blue);
+            margin-bottom: 5px;
+        }
+
+        .pricing-period {
+            color: #666;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--orbit-gray);
+            color: #555;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li i {
+            color: var(--astro-blue);
+            margin-right: 10px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--stellar-white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-content {
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--orbit-gray);
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--astro-blue);
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--cosmic-black);
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--stellar-white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--cosmic-black);
+        }
+
+        .contact-info p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-details li i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--orbit-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--astro-blue);
+        }
+
+        .contact-form {
+            background-color: var(--light-gray);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--cosmic-black);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--orbit-gray);
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--astro-blue);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cosmic-black);
+            color: var(--stellar-white);
+            padding: 80px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 30px;
+            height: 2px;
+            background-color: var(--astro-blue);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--stellar-white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--stellar-white);
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--astro-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .cta-button, .secondary-button {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .services-grid, .projects-grid, .pricing-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <div class="logo-text">AstroSoft</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="cta-button">Get Started</button>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Beyond Code.<br>Beyond Limits.</h1>
+                <p>AstroSoft empowers businesses to explore new horizons in technology, delivering cutting-edge software solutions with simplicity, reliability, and limitless innovation.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button">Start Your Project</button>
+                    <button class="secondary-button">Learn More</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Abstract futuristic graphic would go here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive software solutions tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Custom Software Development</h3>
+                    <p>Tailored solutions designed to address your specific business challenges and drive growth.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Engaging, high-performance mobile applications for iOS and Android platforms.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions</h3>
+                    <p>Scalable cloud infrastructure and migration services to optimize your operations.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI & Machine Learning</h3>
+                    <p>Intelligent systems that learn, adapt, and automate to give you a competitive edge.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity</h3>
+                    <p>Comprehensive security solutions to protect your digital assets and customer data.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analytics</h3>
+                    <p>Transform raw data into actionable insights that drive informed business decisions.</p>
+                    <a href="#" class="secondary-button">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Projects</h2>
+                <p>Explore some of our recent work that showcases our expertise and innovation</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Nexus Financial Platform</h3>
+                        <p>A comprehensive financial management platform with real-time analytics and predictive insights.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Web App</span>
+                            <span class="project-tag">Fintech</span>
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>MediTrack Pro</h3>
+                        <p>Healthcare application for patient monitoring and medical data management with HIPAA compliance.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Mobile App</span>
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Firebase</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-content">
+                        <h3>Smart Retail Analytics</h3>
+                        <p>AI-powered retail analytics platform that optimizes inventory and enhances customer experience.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">AI/ML</span>
+                            <span class="project-tag">Retail</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pricing Plans</h2>
+                <p>Flexible pricing options designed to scale with your business needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Starter</div>
+                        <div class="pricing-price">$4,999</div>
+                        <div class="pricing-period">per project</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Basic Web Application</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> 3 Months Support</li>
+                        <li><i class="fas fa-check"></i> Basic SEO</li>
+                        <li><i class="fas fa-times"></i> Advanced Features</li>
+                        <li><i class="fas fa-times"></i> Priority Support</li>
+                    </ul>
+                    <button class="secondary-button">Choose Plan</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <div class="pricing-name">Professional</div>
+                        <div class="pricing-price">$12,999</div>
+                        <div class="pricing-period">per project</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Custom Web Application</li>
+                        <li><i class="fas fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fas fa-check"></i> 12 Months Support</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO</li>
+                        <li><i class="fas fa-check"></i> API Integration</li>
+                        <li><i class="fas fa-times"></i> Enterprise Features</li>
+                    </ul>
+                    <button class="cta-button">Choose Plan</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Enterprise</div>
+                        <div class="pricing-price">Custom</div>
+                        <div class="pricing-period">tailored solution</div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Full-stack Solution</li>
+                        <li><i class="fas fa-check"></i> Multi-platform</li>
+                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Security</li>
+                        <li><i class="fas fa-check"></i> AI/ML Integration</li>
+                        <li><i class="fas fa-check"></i> Scalable Architecture</li>
+                    </ul>
+                    <button class="secondary-button">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our clients say about working with AstroSoft</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "AstroSoft delivered beyond our expectations. Their team was professional, responsive, and the final product has significantly improved our operational efficiency."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JS</div>
+                        <div class="author-info">
+                            <h4>Jennifer Smith</h4>
+                            <p>CTO, TechNova Inc.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "The mobile application developed by AstroSoft has received excellent feedback from our users. Their attention to detail and user experience focus is remarkable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Product Manager, RetailPlus</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Working with AstroSoft was a game-changer for our business. Their cloud migration solution cut our operational costs by 40% while improving performance."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Amanda Kim</h4>
+                            <p>Operations Director, Global Logistics Co.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to start your next project? Contact us today for a free consultation</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Discuss Your Project</h3>
+                    <p>We're excited to learn about your software needs and explore how AstroSoft can help bring your vision to life.</p>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Headquarters</strong>
+                                <p>123 Innovation Drive, Tech City</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Phone</strong>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>hello@astrosoft.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" class="form-control" placeholder="Your Company">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text" style="color: var(--stellar-white);">AstroSoft</div>
+                    </div>
+                    <p style="margin-top: 20px; color: #aaa;">Beyond Code. Beyond Limits. Engineering Tomorrow's Solutions, Today.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Custom Software Development</a></li>
+                        <li><a href="#">Mobile App Development</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">AI & Machine Learning</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Team</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AstroSoft. All rights reserved. | Where Ideas Orbit into Reality.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // // Mobile menu toggle
+        // document.querySelector('.mobile-menu').addEventListener('click', function() {
+        //     document.querySelector('.nav-links').classList.toggle('active');
+        // });
+
+        // // Smooth scrolling for navigation links
+        // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        //     anchor.addEventListener('click', function (e) {
+        //         e.preventDefault();
+                
+        //         const targetId = this.getAttribute('href');
+        //         if(targetId === '#') return;
+                
+        //         const targetElement = document.querySelector(targetId);
+        //         if(targetElement) {
+        //             window.scrollTo({
+        //                 top: targetElement.offsetTop - 80,
+        //                 behavior: 'smooth'
+        //             });
+        //         }
+        //     });
+        // });
+
+        // Mobile menu toggle
+document.querySelector('.mobile-menu').addEventListener('click', function() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+    this.querySelector('i').classList.toggle('fa-bars');
+    this.querySelector('i').classList.toggle('fa-times');
+});
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        header.style.padding = '10px 0';
+    } else {
+        header.style.backgroundColor = 'rgba(18, 18, 18, 0.95)';
+        header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.2)';
+        header.style.padding = '20px 0';
+    }
+});
+
+// Intersection Observer for scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            
+            // Stagger animation for service cards
+            if (entry.target.classList.contains('service-card')) {
+                const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100;
+                entry.target.style.animationDelay = `${delay}ms`;
+            }
+            
+            // Stagger animation for project cards
+            if (entry.target.classList.contains('project-card')) {
+                const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 150;
+                entry.target.style.animationDelay = `${delay}ms`;
+            }
+            
+            // Stagger animation for pricing cards
+            if (entry.target.classList.contains('pricing-card')) {
+                const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
+                entry.target.style.animationDelay = `${delay}ms`;
+            }
+        }
+    });
+}, observerOptions);
+
+// Observe all elements that should animate
+document.querySelectorAll('.service-card, .project-card, .pricing-card, .testimonial-card, .section-header').forEach(el => {
+    observer.observe(el);
+});
+
+// Floating particles animation
+function createParticles() {
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'particles-container';
+    particlesContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+    `;
+    document.body.appendChild(particlesContainer);
+
+    for (let i = 0; i < 15; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+            position: absolute;
+            width: ${Math.random() * 6 + 2}px;
+            height: ${Math.random() * 6 + 2}px;
+            background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+            border-radius: 50%;
+            opacity: ${Math.random() * 0.4 + 0.1};
+            animation: floatParticle ${Math.random() * 20 + 10}s linear infinite;
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        particlesContainer.appendChild(particle);
+    }
+}
+
+// Add CSS for particle animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes floatParticle {
+        0% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+            opacity: 0;
+        }
+        10% {
+            opacity: 0.3;
+        }
+        90% {
+            opacity: 0.3;
+        }
+        100% {
+            transform: translateY(-100vh) translateX(100px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .animate-in {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .service-card, .project-card, .pricing-card, .testimonial-card {
+        opacity: 0;
+    }
+
+    .logo-icon {
+        animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% {
+            box-shadow: 0 4px 10px rgba(27, 60, 252, 0.3);
+        }
+        50% {
+            box-shadow: 0 4px 20px rgba(27, 60, 252, 0.6), 0 0 30px rgba(27, 60, 252, 0.4);
+        }
+    }
+
+    .cta-button, .secondary-button {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-button::before, .secondary-button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .cta-button:hover::before, .secondary-button:hover::before {
+        left: 100%;
+    }
+
+    .hero-image::before {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .service-icon {
+        animation: iconFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes iconFloat {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .nav-links a::after {
+        transition: width 0.3s ease;
+    }
+
+    .pricing-card.featured {
+        animation: featuredPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes featuredPulse {
+        0%, 100% {
+            box-shadow: 0 10px 30px rgba(27, 60, 252, 0.2);
+        }
+        50% {
+            box-shadow: 0 10px 40px rgba(27, 60, 252, 0.4);
+        }
+    }
+
+    .social-links a {
+        animation: socialFloat 3s ease-in-out infinite;
+    }
+
+    .social-links a:nth-child(2) {
+        animation-delay: 0.5s;
+    }
+
+    .social-links a:nth-child(3) {
+        animation-delay: 1s;
+    }
+
+    .social-links a:nth-child(4) {
+        animation-delay: 1.5s;
+    }
+
+    @keyframes socialFloat {
+        0%, 100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .form-control:focus {
+        animation: inputFocus 0.3s ease-out;
+    }
+
+    @keyframes inputFocus {
+        from {
+            box-shadow: 0 0 0 0 rgba(27, 60, 252, 0.2);
+        }
+        to {
+            box-shadow: 0 0 0 4px rgba(27, 60, 252, 0.2);
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Typing effect for hero section
+function typeWriter(element, text, speed = 50) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+
+// Initialize animations when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Create floating particles
+    createParticles();
+    
+    // Add typing effect to hero subtitle
+    const heroSubtitle = document.querySelector('.hero p');
+    if (heroSubtitle) {
+        const originalText = heroSubtitle.textContent;
+        heroSubtitle.textContent = '';
+        setTimeout(() => {
+            typeWriter(heroSubtitle, originalText, 30);
+        }, 1000);
+    }
+    
+    // Add parallax effect to hero section
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            hero.style.backgroundPosition = `center ${scrolled * 0.5}px`;
+        }
+    });
+    
+    // Animate counter for pricing (example)
+    function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+        const timer = setInterval(() => {
+            start += increment;
+            if (start >= target) {
+                element.textContent = target.toLocaleString();
+                clearInterval(timer);
+            } else {
+                element.textContent = Math.floor(start).toLocaleString();
+            }
+        }, 16);
+    }
+    
+    // Animate stats when they come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('[data-count]');
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    animateCounter(counter, target);
+                });
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    // Add hover effects to service cards
+    document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+    
+    // Add ripple effect to buttons
+    document.querySelectorAll('.cta-button, .secondary-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+            `;
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+    
+    // Add ripple animation
+    const rippleStyle = document.createElement('style');
+    rippleStyle.textContent = `
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(rippleStyle);
+    
+    // Animate form inputs on focus
+    document.querySelectorAll('.form-control').forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            if (this.value === '') {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+    });
+    
+    // Add loading animation to page
+    const loader = document.createElement('div');
+    loader.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--dark-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    `;
+    
+    const loaderContent = document.createElement('div');
+    loaderContent.style.cssText = `
+        text-align: center;
+    `;
+    
+    const loaderLogo = document.createElement('div');
+    loaderLogo.className = 'logo-icon';
+    loaderLogo.style.margin = '0 auto 20px';
+    
+    const loaderText = document.createElement('div');
+    loaderText.textContent = 'AstroSoft';
+    loaderText.style.color = 'var(--stellar-white)';
+    loaderText.style.fontSize = '24px';
+    loaderText.style.fontWeight = 'bold';
+    loaderText.style.marginBottom = '20px';
+    
+    const loaderBar = document.createElement('div');
+    loaderBar.style.cssText = `
+        width: 200px;
+        height: 3px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 2px;
+        overflow: hidden;
+        margin: 0 auto;
+    `;
+    
+    const loaderProgress = document.createElement('div');
+    loaderProgress.style.cssText = `
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(to right, var(--astro-blue), var(--nova-purple));
+        border-radius: 2px;
+        transition: width 0.3s ease;
+    `;
+    
+    loaderBar.appendChild(loaderProgress);
+    loaderContent.appendChild(loaderLogo);
+    loaderContent.appendChild(loaderText);
+    loaderContent.appendChild(loaderBar);
+    loader.appendChild(loaderContent);
+    document.body.appendChild(loader);
+    
+    // Simulate loading progress
+    let progress = 0;
+    const loadingInterval = setInterval(() => {
+        progress += Math.random() * 15;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(loadingInterval);
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.remove();
+                }, 500);
+            }, 500);
+        }
+        loaderProgress.style.width = `${progress}%`;
+    }, 200);
+});
+
+// Add cursor follower
+document.addEventListener('DOMContentLoaded', function() {
+    const cursor = document.createElement('div');
+    cursor.style.cssText = `
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--astro-blue);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background 0.2s;
+        mix-blend-mode: difference;
+    `;
+    document.body.appendChild(cursor);
+    
+    const cursorFollower = document.createElement('div');
+    cursorFollower.style.cssText = `
+        position: fixed;
+        width: 8px;
+        height: 8px;
+        background: var(--nova-purple);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s;
+    `;
+    document.body.appendChild(cursorFollower);
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+        
+        setTimeout(() => {
+            cursorFollower.style.left = e.clientX + 'px';
+            cursorFollower.style.top = e.clientY + 'px';
+        }, 100);
+    });
+    
+    document.addEventListener('mousedown', () => {
+        cursor.style.width = '15px';
+        cursor.style.height = '15px';
+        cursor.style.background = 'var(--astro-blue)';
+    });
+    
+    document.addEventListener('mouseup', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.background = 'transparent';
+    });
+    
+    // Change cursor on interactive elements
+    const interactiveElements = document.querySelectorAll('button, a, .service-card, .project-card, .pricing-card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.width = '30px';
+            cursor.style.height = '30px';
+            cursor.style.borderColor = 'var(--nova-purple)';
+        });
+        
+        el.addEventListener('mouseleave', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.borderColor = 'var(--astro-blue)';
+        });
+    });
+});
+
+// Add scroll to top button
+const scrollToTopBtn = document.createElement('button');
+scrollToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+scrollToTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--astro-blue), var(--nova-purple));
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(27, 60, 252, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+`;
+
+document.body.appendChild(scrollToTopBtn);
+
+scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        scrollToTopBtn.style.opacity = '1';
+        scrollToTopBtn.style.transform = 'translateY(0)';
+    } else {
+        scrollToTopBtn.style.opacity = '0';
+        scrollToTopBtn.style.transform = 'translateY(20px)';
+    }
+});
+    </script>
+</body>
+</html>
