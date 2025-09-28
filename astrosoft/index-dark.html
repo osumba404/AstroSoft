@@ -845,8 +845,31 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+        .hero-image img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.author-avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
     </style>
 </head>
+
 <body>
     <!-- Header & Navigation -->
     <header>
@@ -883,7 +906,8 @@
                 </div>
             </div>
             <div class="hero-image">
-                <!-- Abstract futuristic graphic would go here -->
+                <!-- Replace with your transparent background image -->
+                <img src="azwedo-l-lc-c2k8vBHyNwM-unsplash.jpg" alt="Abstract futuristic technology graphic" style="width: 100%; height: auto;">
             </div>
         </div>
     </section>
@@ -948,56 +972,66 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Projects</h2>
-                <p>Explore some of our recent work that showcases our expertise and innovation</p>
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Projects</h2>
+            <p>Explore some of our recent work that showcases our expertise and innovation</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <!-- Replace with financial platform image -->
+                    <img src="carriza-maiquez-RTdvy9izXvw-unsplash.jpg" alt="Nexus Financial Platform dashboard">
+                </div>
+                <div class="project-content">
+                    <h3>Nexus Financial Platform</h3>
+                    <p>A comprehensive financial management platform with real-time analytics and predictive insights.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Web App</span>
+                        <span class="project-tag">Fintech</span>
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                    </div>
+                </div>
             </div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3>Nexus Financial Platform</h3>
-                        <p>A comprehensive financial management platform with real-time analytics and predictive insights.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Web App</span>
-                            <span class="project-tag">Fintech</span>
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                        </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <!-- Replace with healthcare app image -->
+                    <img src="images/healthcare-app.png" alt="MediTrack Pro mobile application">
+                </div>
+                <div class="project-content">
+                    <h3>MediTrack Pro</h3>
+                    <p>Healthcare application for patient monitoring and medical data management with HIPAA compliance.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Mobile App</span>
+                        <span class="project-tag">Healthcare</span>
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Firebase</span>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3>MediTrack Pro</h3>
-                        <p>Healthcare application for patient monitoring and medical data management with HIPAA compliance.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Mobile App</span>
-                            <span class="project-tag">Healthcare</span>
-                            <span class="project-tag">Flutter</span>
-                            <span class="project-tag">Firebase</span>
-                        </div>
-                    </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <!-- Replace with retail analytics image -->
+                    <img src="images/retail-analytics.png" alt="Smart Retail Analytics dashboard">
                 </div>
-                <div class="project-card">
-                    <div class="project-image"></div>
-                    <div class="project-content">
-                        <h3>Smart Retail Analytics</h3>
-                        <p>AI-powered retail analytics platform that optimizes inventory and enhances customer experience.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">AI/ML</span>
-                            <span class="project-tag">Retail</span>
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">TensorFlow</span>
-                        </div>
+                <div class="project-content">
+                    <h3>Smart Retail Analytics</h3>
+                    <p>AI-powered retail analytics platform that optimizes inventory and enhances customer experience.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">AI/ML</span>
+                        <span class="project-tag">Retail</span>
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">TensorFlow</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
@@ -1061,52 +1095,72 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Client Testimonials</h2>
-                <p>What our clients say about working with AstroSoft</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "AstroSoft delivered beyond our expectations. Their team was professional, responsive, and the final product has significantly improved our operational efficiency."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JS</div>
-                        <div class="author-info">
-                            <h4>Jennifer Smith</h4>
-                            <p>CTO, TechNova Inc.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "The mobile application developed by AstroSoft has received excellent feedback from our users. Their attention to detail and user experience focus is remarkable."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <h4>Michael Rodriguez</h4>
-                            <p>Product Manager, RetailPlus</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        "Working with AstroSoft was a game-changer for our business. Their cloud migration solution cut our operational costs by 40% while improving performance."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">AK</div>
-                        <div class="author-info">
-                            <h4>Amanda Kim</h4>
-                            <p>Operations Director, Global Logistics Co.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+    <!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2>Client Testimonials</h2>
+            <p>What our clients say about working with AstroSoft</p>
         </div>
-    </section>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "AstroSoft delivered beyond our expectations. Their team was professional, responsive, and the final product has significantly improved our operational efficiency."
+                </div>
+                <div class="testimonial-author">
+                    <!-- Replace with actual headshot or keep initials -->
+                    <div class="author-avatar">
+                        <img src="images/jennifer-smith.png" alt="Jennifer Smith">
+                    </div>
+                    <div class="author-info">
+                        <h4>Jennifer Smith</h4>
+                        <p>CTO, TechNova Inc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                        "The mobile application developed by AstroSoft has received excellent feedback from our users. Their attention to detail and user experience focus is remarkable."
+                </div>
+                <div class="testimonial-author">
+                    <!-- Replace with actual headshot or keep initials -->
+                    <div class="author-avatar">
+                        <img src="images/jennifer-smith.png" alt="Jennifer Smith">
+                    </div>
+                    <div class="author-info">
+                        <h4>Jennifer Smith</h4>
+                        <p>CTO, TechNova Inc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                        "Working with AstroSoft was a game-changer for our business. Their cloud migration solution cut our operational costs by 40% while improving performance."
+                </div>
+                <div class="testimonial-author">
+                    <!-- Replace with actual headshot or keep initials -->
+                    <div class="author-avatar">
+                        <img src="images/jennifer-smith.png" alt="Jennifer Smith">
+                    </div>
+                    <div class="author-info">
+                        <h4>Jennifer Smith</h4>
+                        <p>CTO, TechNova Inc.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for other testimonials -->
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
